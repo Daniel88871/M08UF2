@@ -88,14 +88,16 @@ public class homeFragment extends Fragment {
         // Gestion de likes
             final String postKey = getSnapshots().getSnapshot(position).getId();
             final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            if(post.likes.containsKey(uid))
+            if(post.likes.containsKey(uid)) {
                 holder.likeImageView.setImageResource(R.drawable.like_on);
-            else
+            }
+            else {
                 holder.likeImageView.setImageResource(R.drawable.like_off);
                 holder.numLikesTextView.setText(String.valueOf(post.likes.size()));
                 holder.likeImageView.setOnClickListener(view -> {
-                FirebaseFirestore.getInstance().collection("posts").document(postKey).update("likes."+uid, post.likes.containsKey(uid) ? FieldValue.delete() : true);
-            });
+                    FirebaseFirestore.getInstance().collection("posts").document(postKey).update("likes." + uid, post.likes.containsKey(uid) ? FieldValue.delete() : true);
+                });
+            }
         }
 
         class PostViewHolder extends RecyclerView.ViewHolder {
@@ -108,6 +110,8 @@ public class homeFragment extends Fragment {
                 authorPhotoImageView = itemView.findViewById(R.id.authorphotoImageView);
                 authorTextView = itemView.findViewById(R.id.authorTextView);
                 contentTextView = itemView.findViewById(R.id.contentTextView);
+                likeImageView = itemView.findViewById(R.id.likeImageView);
+                numLikesTextView = itemView.findViewById(R.id.numLikesTextView);
             }
         }
     }
