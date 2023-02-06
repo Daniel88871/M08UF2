@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardUseCompatPadding="true">
@@ -17,8 +18,8 @@
             android:adjustViewBounds="true"
             app:srcCompat="@drawable/user" />
 
-        <LinearLayout
-            android:layout_width="162dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="257dp"
             android:layout_height="159dp"
             android:orientation="vertical"
             android:paddingStart="10dp">
@@ -26,58 +27,96 @@
             <TextView
                 android:id="@+id/authorTextView"
                 style="@style/Base.TextAppearance.AppCompat.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:text="Author" />
+                android:layout_width="45dp"
+                android:layout_height="19dp"
+                android:layout_marginBottom="16dp"
+                android:text="Author"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toTopOf="@+id/contentTextView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.008"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/contentTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="88dp"
                 android:text="Contenido"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintStart_toStartOf="parent" />
 
-            <LinearLayout
-                android:id="@+id/likeLinearLayout"
+            <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_marginEnd="92dp"
+                android:layout_marginBottom="48dp"
+                android:text="57K"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-                <ImageView
-                    android:id="@+id/likeImageView"
-                    android:layout_width="20dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/like_on" />
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="26dp"
+                android:layout_marginBottom="44dp"
+                android:background="@drawable/rt"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView"
+                app:layout_constraintHorizontal_bias="0.605"
+                app:layout_constraintStart_toEndOf="@+id/numLikesTextView" />
 
-                <TextView
-                    android:id="@+id/numLikesTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="4dp"
-                    android:text="200K" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/numLikesTextView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="164dp"
+                android:text="200K"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contentTextView"
+                app:layout_constraintVertical_bias="0.0" />
 
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="26dp"
-                    android:background="@drawable/rt" />
+            <ImageView
+                android:id="@+id/likeImageView"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="48dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/numLikesTextView"
+                app:layout_constraintHorizontal_bias="0.75"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/like_on" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="57K" />
-            </LinearLayout>
-        </LinearLayout>
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="22dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="44dp"
+                android:background="@drawable/comentarios"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/textView2"
+                app:layout_constraintHorizontal_bias="0.562"
+                app:layout_constraintStart_toEndOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:text="9K"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.678" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
