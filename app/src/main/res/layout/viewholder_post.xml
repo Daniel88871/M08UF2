@@ -50,23 +50,25 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/numRetweetsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="92dp"
                 android:layout_marginBottom="48dp"
-                android:text="57K"
+                android:text="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <ImageView
+                android:id="@+id/retweetImageView"
                 android:layout_width="25dp"
                 android:layout_height="26dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginBottom="44dp"
                 android:background="@drawable/rt"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView"
-                app:layout_constraintHorizontal_bias="0.605"
+                app:layout_constraintEnd_toStartOf="@+id/numRetweetsTextView"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/numLikesTextView" />
 
             <TextView
@@ -76,7 +78,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="164dp"
-                android:text="200K"
+                android:text="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/contentTextView"
@@ -99,19 +101,20 @@
                 android:layout_width="23dp"
                 android:layout_height="22dp"
                 android:layout_marginStart="12dp"
+                android:layout_marginEnd="8dp"
                 android:layout_marginBottom="44dp"
                 android:background="@drawable/comentarios"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textView2"
-                app:layout_constraintHorizontal_bias="0.562"
-                app:layout_constraintStart_toEndOf="@+id/textView" />
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/numRetweetsTextView" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:text="9K"
+                android:layout_marginEnd="32dp"
+                android:text="1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"

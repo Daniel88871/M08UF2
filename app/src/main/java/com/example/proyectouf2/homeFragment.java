@@ -57,7 +57,7 @@ public class homeFragment extends Fragment {
     }
 
     class PostViewHolder extends RecyclerView.ViewHolder {
-        ImageView authorPhotoImageView, likeImageView;
+        ImageView authorPhotoImageView, likeImageView, retweetImageView;
         TextView authorTextView, contentTextView, numLikesTextView;
 
         PostViewHolder(@NonNull View itemView) {
