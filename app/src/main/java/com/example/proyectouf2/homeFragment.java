@@ -9,6 +9,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,20 +57,6 @@ public class homeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
-    class PostViewHolder extends RecyclerView.ViewHolder {
-        ImageView authorPhotoImageView, likeImageView, retweetImageView;
-        TextView authorTextView, contentTextView, numLikesTextView;
-
-        PostViewHolder(@NonNull View itemView) {
-            super(itemView);
-            authorPhotoImageView = itemView.findViewById(R.id.authorphotoImageView);
-            likeImageView = itemView.findViewById(R.id.likeImageView);
-            authorTextView = itemView.findViewById(R.id.authorTextView);
-            contentTextView = itemView.findViewById(R.id.contentTextView);
-            numLikesTextView = itemView.findViewById(R.id.numLikesTextView);
-        }
-    }
-
     class PostsAdapter extends FirestoreRecyclerAdapter<Post, PostsAdapter.PostViewHolder> {
         public PostsAdapter(@NonNull FirestoreRecyclerOptions<Post> options) {super(options);}
 
@@ -88,21 +75,52 @@ public class homeFragment extends Fragment {
         // Gestion de likes
             final String postKey = getSnapshots().getSnapshot(position).getId();
             final String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            if(post.likes.containsKey(uid)) {
+
+            if(post.likes.containsKey(uid))
                 holder.likeImageView.setImageResource(R.drawable.like_on);
-            }
-            else {
+
+            else
                 holder.likeImageView.setImageResource(R.drawable.like_off);
                 holder.numLikesTextView.setText(String.valueOf(post.likes.size()));
                 holder.likeImageView.setOnClickListener(view -> {
-                    FirebaseFirestore.getInstance().collection("posts").document(postKey).update("likes." + uid, post.likes.containsKey(uid) ? FieldValue.delete() : true);
+                    FirebaseFirestore.getInstance().collection("posts")
+                            .document(postKey)
+                            .update("likes." + uid, post.likes.containsKey(uid) ?
+                                    FieldValue.delete() : true);
                 });
-            }
+
+
+            // Gestion de retweets
+            if(post.retweets.containsKey(uid))
+                holder.retweetImageView.setImageResource(R.drawable.rt_on);
+
+            else
+                holder.retweetImageView.setImageResource(R.drawable.rt_off);
+                holder.numRetweetsTextView.setText(String.valueOf(post.retweets.size()));
+                holder.retweetImageView.setOnClickListener(view -> {
+                    FirebaseFirestore.getInstance().collection("posts")
+                            .document(postKey)
+                            .update("retweets." + uid, post.retweets.containsKey(uid) ?
+                                    FieldValue.delete() : true);
+                });
+
+            holder.papeleraImageView.setVisibility(View.VISIBLE);
+            holder.papeleraImageView.setOnClickListener(view -> {
+                FirebaseFirestore.getInstance().collection("posts")
+                        .document(postKey)
+                        .delete()
+                        .addOnSuccessListener(aVoid -> {
+                            Log.d("Post deleted successfully", String.valueOf(aVoid));
+                        })
+                        .addOnFailureListener(e -> {
+                            Log.w("Error deleting post", e);
+                        });
+            });
         }
 
         class PostViewHolder extends RecyclerView.ViewHolder {
-            ImageView authorPhotoImageView, likeImageView;
-            TextView authorTextView, contentTextView, numLikesTextView;
+            ImageView authorPhotoImageView, likeImageView, retweetImageView, comentariosImageView, papeleraImageView;
+            TextView authorTextView, contentTextView, numLikesTextView, numRetweetsTextView, numComentariosTextView;
 
             PostViewHolder(@NonNull View itemView) {
                 super(itemView);
@@ -112,6 +130,9 @@ public class homeFragment extends Fragment {
                 contentTextView = itemView.findViewById(R.id.contentTextView);
                 likeImageView = itemView.findViewById(R.id.likeImageView);
                 numLikesTextView = itemView.findViewById(R.id.numLikesTextView);
+                numRetweetsTextView = itemView.findViewById(R.id.numRetweetsTextView);
+                retweetImageView = itemView.findViewById(R.id.retweetImageView);
+                papeleraImageView = itemView.findViewById(R.id.papeleraImageView);
             }
         }
     }

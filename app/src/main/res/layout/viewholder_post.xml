@@ -19,7 +19,7 @@
             app:srcCompat="@drawable/user" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="257dp"
+            android:layout_width="322dp"
             android:layout_height="159dp"
             android:orientation="vertical"
             android:paddingStart="10dp">
@@ -41,84 +41,90 @@
                 android:id="@+id/contentTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="88dp"
+                android:layout_marginBottom="84dp"
                 android:text="Contenido"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.49"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/numRetweetsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="92dp"
-                android:layout_marginBottom="48dp"
+                android:layout_marginStart="16dp"
                 android:text="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@+id/retweetImageView"
+                app:layout_constraintStart_toEndOf="@+id/retweetImageView"
+                app:layout_constraintTop_toTopOf="@+id/retweetImageView" />
 
             <ImageView
                 android:id="@+id/retweetImageView"
                 android:layout_width="25dp"
                 android:layout_height="26dp"
-                android:layout_marginStart="32dp"
-                android:layout_marginBottom="44dp"
-                android:background="@drawable/rt"
+                android:layout_marginStart="28dp"
+                android:background="@drawable/rt_off"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/numRetweetsTextView"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/numLikesTextView" />
+                app:layout_constraintStart_toEndOf="@+id/numLikesTextView"
+                app:layout_constraintTop_toBottomOf="@+id/contentTextView"
+                app:layout_constraintVertical_bias="0.74" />
 
             <TextView
                 android:id="@+id/numLikesTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="164dp"
+                android:layout_marginStart="16dp"
                 android:text="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/contentTextView"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintBottom_toBottomOf="@+id/likeImageView"
+                app:layout_constraintStart_toEndOf="@+id/likeImageView"
+                app:layout_constraintTop_toTopOf="@+id/likeImageView" />
 
             <ImageView
                 android:id="@+id/likeImageView"
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginBottom="48dp"
+                android:layout_marginStart="22dp"
                 android:adjustViewBounds="true"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/numLikesTextView"
-                app:layout_constraintHorizontal_bias="0.75"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/contentTextView"
+                app:layout_constraintVertical_bias="0.687"
                 app:srcCompat="@drawable/like_on" />
 
             <ImageView
+                android:id="@+id/comentariosImageView"
                 android:layout_width="23dp"
                 android:layout_height="22dp"
-                android:layout_marginStart="12dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="44dp"
+                android:layout_marginStart="28dp"
                 android:background="@drawable/comentarios"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textView2"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/numRetweetsTextView" />
+                app:layout_constraintStart_toEndOf="@+id/numRetweetsTextView"
+                app:layout_constraintTop_toBottomOf="@+id/contentTextView"
+                app:layout_constraintVertical_bias="0.73" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/numComentariosTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="32dp"
+                android:layout_marginStart="16dp"
                 android:text="1"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/comentariosImageView"
+                app:layout_constraintStart_toEndOf="@+id/comentariosImageView"
+                app:layout_constraintTop_toTopOf="@+id/comentariosImageView" />
+
+            <ImageView
+                android:id="@+id/papeleraImageView"
+                android:layout_width="23dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.91"
+                app:layout_constraintStart_toEndOf="@+id/authorTextView"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.678" />
+                app:srcCompat="@drawable/papelera" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

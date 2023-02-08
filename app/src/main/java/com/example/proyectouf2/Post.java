@@ -13,6 +13,9 @@ public class Post {
     public Post() {}
 
     public Map<String, Boolean> likes = new HashMap<>();
+    public Map<String, Boolean> retweets = new HashMap<>();
+    public Map<String, Boolean> comentarios = new HashMap<>();
+    public Map<String, Boolean> borrar = new HashMap<>();
 
     public Post(String uid, String author, String authorPhotoUrl, String content) {
         this.uid = uid;
