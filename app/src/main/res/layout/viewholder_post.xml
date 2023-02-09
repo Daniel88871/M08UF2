@@ -64,7 +64,7 @@
                 android:layout_width="25dp"
                 android:layout_height="26dp"
                 android:layout_marginStart="28dp"
-                android:background="@drawable/rt_off"
+                app:srcCompat="@drawable/rt_off"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/numLikesTextView"
                 app:layout_constraintTop_toBottomOf="@+id/contentTextView"
@@ -86,34 +86,13 @@
                 android:layout_width="20dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="22dp"
+                android:layout_marginStart="55dp"
                 android:adjustViewBounds="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/contentTextView"
-                app:layout_constraintVertical_bias="0.687"
+                app:layout_constraintVertical_bias="0.703"
                 app:srcCompat="@drawable/like_on" />
-
-            <ImageView
-                android:id="@+id/comentariosImageView"
-                android:layout_width="23dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="28dp"
-                android:background="@drawable/comentarios"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/numRetweetsTextView"
-                app:layout_constraintTop_toBottomOf="@+id/contentTextView"
-                app:layout_constraintVertical_bias="0.73" />
-
-            <TextView
-                android:id="@+id/numComentariosTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="1"
-                app:layout_constraintBottom_toBottomOf="@+id/comentariosImageView"
-                app:layout_constraintStart_toEndOf="@+id/comentariosImageView"
-                app:layout_constraintTop_toTopOf="@+id/comentariosImageView" />
 
             <ImageView
                 android:id="@+id/papeleraImageView"
